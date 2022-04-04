@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import { useRouter } from 'next/router'
 import Link from "next/link";
 import {useWeb3} from "@3rdweb/hooks";
+import {ThirdwebSDK} from "@thirdweb-dev/sdk";
 
 const style = {
     bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -33,6 +34,20 @@ const Collection = () => {
     const [collection, setCollection] = useState({})
     const [nfts, setNfts] = useState([])
     const [listings, setListings] = useState([])
+
+    // rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18 - alchemy
+    //https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18
+
+    const nftModule = useMemo(() => {
+        if(!provider) return;
+
+        const sdk = new ThirdwebSDK(
+            provider.getSigner(),
+            'https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18'
+        )
+        return sdk.getNFTModule(collectionId)
+
+    }, [provider]);
 
     return (
         <Link href="/">
