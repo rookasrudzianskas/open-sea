@@ -44,19 +44,40 @@ const Collection = () => {
         const sdk = new ThirdwebSDK(
             provider.getSigner(),
             'https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18'
-        )
+        );
         return sdk.getNFTModule(collectionId)
 
     }, [provider]);
 
     useEffect(() => {
         if(!nftModule) return;
-
+        // gets all the nfts in the collection
         ;(async () => {
             const nfts = await nftModule.getAll();
             setNfts(nfts);
-        })
+        })();
+
     }, [nftModule]);
+
+    const marketPlaceModule = useMemo(() => {
+        if(!provider) return;
+
+        const sdk = new ThirdwebSDK(
+            provider.getSigner(),
+            'https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18'
+        );
+
+        return sdk.getMarketplaceModule('0xeb38262776CcD2a7CdAD70686719f3F82898Fef0'); // marketplace address
+    }, [provider]);
+
+    useEffect(() => {
+        if (!marketPlaceModule) return;
+            ;(async () => {
+            setListings(await marketPlaceModule.getAllListings())
+        })()
+    }, [marketPlaceModule]);
+
+
 
     return (
         <Link href="/">
