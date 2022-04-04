@@ -2,6 +2,9 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import openLogo from '../assets/opensea.png';
+import { AiOutlineSearch } from 'react-icons/ai'
+import { CgProfile } from 'react-icons/cg'
+import { MdOutlineAccountBalanceWallet } from 'react-icons/md'
 
 const style = {
     wrapper: `bg-[#04111d] w-screen px-[1.2rem] py-[0.8rem] flex `,
@@ -26,6 +29,11 @@ const Header = () => {
                     </div>
                 </div>
             </Link>
+            <div className={style.searchBar}>
+                <div className={style.searchIcon}>
+                    <AiOutlineSearch />
+                </div>
+            </div>
         </div>
     );
 };
