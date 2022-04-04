@@ -33,6 +33,24 @@ const Header = () => {
                 <div className={style.searchIcon}>
                     <AiOutlineSearch />
                 </div>
+                <input
+                    className={style.searchInput}
+                    placeholder="Search items, collections, and accounts"
+                />
+            </div>
+            <div className={style.headerItems}>
+                <Link href="/collections/0x66a576A977b7Bccf510630E0aA5e450EC11361Fa">
+                    <div className={style.headerItem}> Collections </div>
+                </Link>
+                <div className={style.headerItem}> Stats </div>
+                <div className={style.headerItem}> Resources </div>
+                <div className={style.headerItem}> Create </div>
+                <div className={style.headerIcon}>
+                    <CgProfile />
+                </div>
+                <div className={style.headerIcon}>
+                    <MdOutlineAccountBalanceWallet />
+                </div>
             </div>
         </div>
     );
