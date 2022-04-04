@@ -79,8 +79,6 @@ const Collection = () => {
     }, [marketPlaceModule]);
 
     const fetchCollectionData = async (sanityClient = client) => {
-        sanityClient = client;
-
         const query = `*[_type == "marketItems" && contractAddress == "${collectionId}" ] {
           "imageUrl": profileImage.asset->url,
           "bannerImageUrl": bannerImage.asset->url,
@@ -111,7 +109,7 @@ const Collection = () => {
 
     return (
         <Link href="/">
-
+            <h2>{router.query.collectionId}</h2>
         </Link>
     );
 };
