@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useRouter } from 'next/router'
+import Link from "next/link";
+import {useWeb3} from "@3rdweb/hooks";
 
 const style = {
     bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -26,10 +28,16 @@ const style = {
 
 const Collection = () => {
     const router = useRouter();
-    return (
-        <div>
+    const { provider } = useWeb3()
+    const { collectionId } = router.query
+    const [collection, setCollection] = useState({})
+    const [nfts, setNfts] = useState([])
+    const [listings, setListings] = useState([])
 
-        </div>
+    return (
+        <Link href="/">
+
+        </Link>
     );
 };
 
