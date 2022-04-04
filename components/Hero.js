@@ -44,16 +44,16 @@ const Hero = () => {
                         <div className={style.infoContainer}>
                             <img
                                 className="h-[2.25rem] rounded-full"
-                                src="https://lh3.googleusercontent.com/qQj55gGIWmT1EnMmGQBNUpIaj0qTyg4YZSQ2ymJVvwr_mXXjuFiHJG9d3MRgj5DVgyLa69u8Tq9ijSm_stsph8YmIJlJQ1e7n6xj=s64"
+                                src="https://yt3.ggpht.com/-CDERLAq3BNY7murpWzg3z9Qde3c9ZrRx59LlLEb1UzKDKZ_ckpTAOlYVQ5TJo9XTgJl2kh9bw=s900-c-k-c0x00ffffff-no-rj"
                                 alt=""
                             />
                             <div className={style.author}>
-                                <div className={style.name}>Jolly</div>
+                                <div className={style.name}>Rokas</div>
                                 <a
                                     className="text-[#1868b7]"
                                     href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/2324922113504035910649522729980423429926362207300810036887725141691069366277"
                                 >
-                                    hola-kanola
+                                    hola-rokas
                                 </a>
                             </div>
                         </div>
