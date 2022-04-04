@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from "next/link";
+import Image from "next/image";
+import openLogo from '../assets/opensea.png';
 
 const style = {
     wrapper: `bg-[#04111d] w-screen px-[1.2rem] py-[0.8rem] flex `,
@@ -16,9 +18,9 @@ const style = {
 const Header = () => {
     return (
         <div className={style.wrapper}>
-            <Link>
-                <div>
-
+            <Link href="/">
+                <div className={style.logoContainer}>
+                    <Image src={openLogo} height="40" width="40" alt=""/>
                 </div>
             </Link>
         </div>
