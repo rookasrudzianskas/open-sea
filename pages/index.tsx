@@ -6,6 +6,8 @@ import Hero from '../components/Hero';
 import { useWeb3 } from '@3rdweb/hooks'
 import { useEffect } from 'react';
 import { client } from '../lib/sanityClient'
+import toast, { Toaster } from 'react-hot-toast'
+
 
 import {async} from "rxjs";
 
@@ -19,17 +21,18 @@ const style = {
 const Home: NextPage = () => {
     const { address, connectWallet } = useWeb3();
 
-    // const welcomeUser = (userName, toastHandler = toast) => {
-    //     toastHandler.success(
-    //         `Welcome back${userName !== 'Unnamed' ? ` ${userName}` : ''}!`,
-    //         {
-    //             style: {
-    //                 background: '#04111d',
-    //                 color: '#fff',
-    //             },
-    //         }
-    //     )
-    // }
+    // @ts-ignore
+    const welcomeUser = (userName, toastHandler = toast) => {
+        toastHandler.success(
+            `Welcome back${userName !== 'Unnamed' ? ` ${userName}` : ''}!`,
+            {
+                style: {
+                    background: '#04111d',
+                    color: '#fff',
+                },
+            }
+        )
+    }
 
     useEffect(() => {
         if (!address) return
@@ -43,13 +46,15 @@ const Home: NextPage = () => {
 
             const result = await client.createIfNotExists(userDoc)
 
-            // welcomeUser(result.userName)
+            welcomeUser(result.userName);
         })()
     }, [address])
 
     return (
     <div className={style.wrapper}>
-      <Head>
+        <Toaster position="top-center" reverseOrder={false} />
+
+        <Head>
         <title>BlockChain Marketplace</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
