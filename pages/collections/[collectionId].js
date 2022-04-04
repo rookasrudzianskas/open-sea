@@ -31,7 +31,7 @@ const style = {
 const Collection = () => {
     const router = useRouter();
     const { provider } = useWeb3()
-    const { collectionId } = router.query
+    const { collectionId } = router.query;
     const [collection, setCollection] = useState({})
     const [nfts, setNfts] = useState([])
     const [listings, setListings] = useState([])
@@ -79,6 +79,8 @@ const Collection = () => {
     }, [marketPlaceModule]);
 
     const fetchCollectionData = async (sanityClient = client) => {
+        sanityClient = client;
+
         const query = `*[_type == "marketItems" && contractAddress == "${collectionId}" ] {
           "imageUrl": profileImage.asset->url,
           "bannerImageUrl": bannerImage.asset->url,
@@ -103,6 +105,8 @@ const Collection = () => {
         fetchCollectionData()
     }, [collectionId]);
 
+    console.log(router.query)
+    console.log(router.query.collectionId)
 
 
     return (
