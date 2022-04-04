@@ -14,8 +14,16 @@ const connectors = {
   injected: {},
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+// @ts-ignore
+function MyApp({ Component, pageProps }) {
+  return (
+      <ThirdwebWeb3Provider
+          supportedChainIds={supportedChainIds}
+          connectors={connectors}
+      >
+        <Component {...pageProps} />
+      </ThirdwebWeb3Provider>
+  )
 }
 
 export default MyApp
