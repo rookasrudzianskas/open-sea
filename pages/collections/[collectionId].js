@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import { useRouter } from 'next/router'
 import Link from "next/link";
 import {useWeb3} from "@3rdweb/hooks";
@@ -48,6 +48,15 @@ const Collection = () => {
         return sdk.getNFTModule(collectionId)
 
     }, [provider]);
+
+    useEffect(() => {
+        if(!nftModule) return;
+
+        ;(async () => {
+            const nfts = await nftModule.getAll();
+            setNfts(nfts);
+        })
+    }, [nftModule]);
 
     return (
         <Link href="/">
