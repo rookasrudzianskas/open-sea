@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from "next/link";
 import {useWeb3} from "@3rdweb/hooks";
 import {ThirdwebSDK} from "@thirdweb-dev/sdk";
+import {client} from "../../lib/sanityClient";
 
 const style = {
     bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -76,6 +77,27 @@ const Collection = () => {
             setListings(await marketPlaceModule.getAllListings())
         })()
     }, [marketPlaceModule]);
+
+    const fetchCollectionData = async (sanityClient = client) => {
+        const query = `*[_type == "marketItems" && contractAddress == "${collectionId}" ] {
+          "imageUrl": profileImage.asset->url,
+          "bannerImageUrl": bannerImage.asset->url,
+          volumeTraded,
+          createdBy,
+          contractAddress,
+          "creator": createdBy->userName,
+          title, floorPrice,
+          "allOwners": owners[]->,
+          description
+        }`
+
+        const collectionData = await sanityClient.fetch(query)
+
+        console.log(collectionData, '🔥')
+
+        // the query returns 1 object inside an array
+        await setCollection(collectionData[0])
+    }
 
 
 
