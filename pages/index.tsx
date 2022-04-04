@@ -19,6 +19,18 @@ const style = {
 const Home: NextPage = () => {
     const { address, connectWallet } = useWeb3();
 
+    // const welcomeUser = (userName, toastHandler = toast) => {
+    //     toastHandler.success(
+    //         `Welcome back${userName !== 'Unnamed' ? ` ${userName}` : ''}!`,
+    //         {
+    //             style: {
+    //                 background: '#04111d',
+    //                 color: '#fff',
+    //             },
+    //         }
+    //     )
+    // }
+
     useEffect(() => {
         if (!address) return
             ;(async () => {
@@ -31,7 +43,7 @@ const Home: NextPage = () => {
 
             const result = await client.createIfNotExists(userDoc)
 
-            welcomeUser(result.userName)
+            // welcomeUser(result.userName)
         })()
     }, [address])
 
