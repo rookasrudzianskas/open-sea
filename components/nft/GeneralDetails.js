@@ -24,7 +24,11 @@ const style = {
 const GeneralDetails = ({selectedNft}) => {
     return (
         <div className={style.wrapper}>
+            <div className={style.infoContainer}>
+                <div className={style.accent}>Bored Ape Yacht Club</div>
+                <div className={style.nftTitle}>{selectedNft?.name || 'Unnamed'}</div>
 
+            </div>
         </div>
     );
 };
