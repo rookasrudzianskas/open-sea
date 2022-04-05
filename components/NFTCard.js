@@ -34,16 +34,44 @@ const NFTCard = ({nftItem, title, listings}) => {
         }
     }, [listings, nftItem]);
     return (
-        <div className={style.wrapper} onClick={
-            () => Router.push({
-                pathname: `/assets/${nftItem.id}`,
-                query: {
-                    isListed: isListed,
-                },
-            })
-        }>
-            <div className="">
-
+        <div
+            className={style.wrapper}
+            onClick={() => {
+                Router.push({
+                    pathname: `/nfts/${nftItem.id}`,
+                    query: { isListed: isListed },
+                })
+            }}
+        >
+            <div className={style.imgContainer}>
+                <img src={nftItem.metadata.image} alt={nftItem.name} className={style.nftImg} />
+            </div>
+            <div className={style.details}>
+                <div className={style.info}>
+                    <div className={style.infoLeft}>
+                        <div className={style.collectionName}>{title}</div>
+                        <div className={style.assetName}>{nftItem.name}</div>
+                    </div>
+                    {isListed && (
+                        <div className={style.infoRight}>
+                            <div className={style.priceTag}>Price</div>
+                            <div className={style.priceValue}>
+                                <img
+                                    src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+                                    alt="eth"
+                                    className={style.ethLogo}
+                                />
+                                {price}
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div className={style.likes}>
+                  <span className={style.likeIcon}>
+                    <BiHeart />
+                  </span>{' '}
+                    {nftItem.likes}
+                </div>
             </div>
         </div>
     );
