@@ -8,6 +8,7 @@ import { CgWebsite } from 'react-icons/cg'
 import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 import { HiDotsVertical } from 'react-icons/hi'
 import Header from "../../components/Header";
+import NFTCard from "../../components/NFTCard";
 
 const style = {
     bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -161,6 +162,64 @@ const Collection = () => {
                         </div>
                     </div>
                 </div>
+                <div className={style.midRow}>
+                    <div className={style.title}>{collection?.title}</div>
+                </div>
+                <div className={style.midRow}>
+                    <div className={style.createdBy}>
+                        Created by{' '}
+                        <span className="text-[#2081e2]">{collection?.creator}</span>
+                    </div>
+                </div>
+                <div className={style.midRow}>
+                    <div className={style.statsContainer}>
+                        <div className={style.collectionStat}>
+                            <div className={style.statValue}>{nfts.length}</div>
+                            <div className={style.statName}>items</div>
+                        </div>
+                        <div className={style.collectionStat}>
+                            <div className={style.statValue}>
+                                {collection?.allOwners ? collection.allOwners.length : ''}
+                            </div>
+                            <div className={style.statName}>owners</div>
+                        </div>
+                        <div className={style.collectionStat}>
+                            <div className={style.statValue}>
+                                <img
+                                    src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+                                    alt="eth"
+                                    className={style.ethLogo}
+                                />
+                                {collection?.floorPrice}
+                            </div>
+                            <div className={style.statName}>floor price</div>
+                        </div>
+                        <div className={style.collectionStat}>
+                            <div className={style.statValue}>
+                                <img
+                                    src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+                                    alt="eth"
+                                    className={style.ethLogo}
+                                />
+                                {collection?.volumeTraded}.5K
+                            </div>
+                            <div className={style.statName}>volume traded</div>
+                        </div>
+                    </div>
+                </div>
+                <div className={style.midRow}>
+                    <div className={style.description}>{collection?.description}</div>
+                </div>
+            </div>
+            <div className="flex flex-wrap ">
+                {nfts.map((nftItem, id) => (
+                    <NFTCard
+                        key={id}
+                        nftItem={nftItem}
+                        title={collection?.title}
+                        listings={listings}
+                    />
+                ))}
             </div>
         </div>
     );
