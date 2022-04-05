@@ -22,7 +22,7 @@ const NFTImage = ({selectedNft}) => {
             </div>
             <div>
                 {console.log(selectedNft, '🎆')}
-                <img className="w-[1000px]" src={selectedNft?.image || 'https://gateway.ipfscdn.io/ipfs/QmXBS6nHGC9AArZ6UcfJuW9f62WtMQTp1K1mhcNR9whnNH/0.png'} />
+                <img className="w-[1000px] object-cover" src={selectedNft?.image || 'https://gateway.ipfscdn.io/ipfs/QmXBS6nHGC9AArZ6UcfJuW9f62WtMQTp1K1mhcNR9whnNH/0.png'} />
             </div>
         </div>
     );
