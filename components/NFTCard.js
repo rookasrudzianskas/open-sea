@@ -20,7 +20,9 @@ const style = {
     likeIcon: `text-xl mr-2`,
 }
 
-const NFTCard = ({nftItem}) => {
+const NFTCard = ({nftItem, title, listings}) => {
+    const [isListed, setIsListed] = useState(false);
+    const [price, setPrice] = useState(0);
     console.log('This is nftItem', nftItem);
     return (
         <div>
