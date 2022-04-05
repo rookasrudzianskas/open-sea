@@ -5,6 +5,7 @@ import { useWeb3 } from '@3rdweb/hooks'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import { useRouter } from 'next/router'
 import {async} from "rxjs";
+import NFTImage from "../../components/nft/NFTImage";
 
 const style = {
     wrapper: `flex flex-col items-center container-lg text-[#e5e8eb]`,
@@ -59,13 +60,28 @@ const Nft = () => {
         })();
     }, [marketPlaceModule]);
 
-
-
-
-
     return (
         <div>
             <Header />
+            <div className={style.wrapper}>
+                <div className={style.container}>
+                    <div className={style.topContent}>
+                        <div className={style.nftImgContainer}>
+                            <NFTImage selectedNft={selectedNft} />
+                        </div>
+                        <div className={style.detailsContainer}>
+                            {/*<GeneralDetails selectedNft={selectedNft} />*/}
+                            {/*<Purchase*/}
+                            {/*    isListed={router.query.isListed}*/}
+                            {/*    selectedNft={selectedNft}*/}
+                            {/*    listings={listings}*/}
+                            {/*    marketPlaceModule={marketPlaceModule}*/}
+                            {/*/>*/}
+                        </div>
+                    </div>
+                    {/*<ItemActivity />*/}
+                </div>
+            </div>
         </div>
     );
 };
