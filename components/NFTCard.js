@@ -31,7 +31,7 @@ const NFTCard = ({nftItem, title, listings}) => {
             setIsListed(true)
             setPrice(listing.buyoutCurrencyValuePerToken.displayValue)
         }
-    }, [listings, nftItem])
+    }, [listings, nftItem]);
 
     return (
         <div
