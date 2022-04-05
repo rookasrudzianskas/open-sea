@@ -38,17 +38,17 @@ const Collection = () => {
 
     // rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18 - alchemy
     //https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18
+    //https://rinkeby.infura.io/v3/a464b9152d8c466c8a94a514fce8e837
 
     const nftModule = useMemo(() => {
-        if(!provider) return;
+        if (!provider) return
 
         const sdk = new ThirdwebSDK(
             provider.getSigner(),
             'https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18'
-        );
-        return sdk.getNFTModule(collectionId)
-
-    }, [provider]);
+        )
+        return sdk?.getNFTCollection(collectionId)
+    }, [provider])
 
     useEffect(() => {
         if(!nftModule) return;
@@ -68,13 +68,13 @@ const Collection = () => {
             'https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18'
         );
 
-        return sdk.getMarketplaceModule('0xeb38262776CcD2a7CdAD70686719f3F82898Fef0'); // marketplace address
+        return sdk.getNFTDrop('0xeb38262776CcD2a7CdAD70686719f3F82898Fef0'); // marketplace address
     }, [provider]);
 
     useEffect(() => {
         if (!marketPlaceModule) return;
             ;(async () => {
-            setListings(await marketPlaceModule.getAllListings())
+            setListings(await marketPlaceModule.getOwned(collectionId));
         })()
     }, [marketPlaceModule]);
 
@@ -109,7 +109,10 @@ const Collection = () => {
 
     return (
         <Link href="/">
-            <h2>{router.query.collectionId}</h2>
+            <div>
+                <h2>{router.query.collectionId}</h2>
+                <h2>I am Rokas</h2>
+            </div>
         </Link>
     );
 };
