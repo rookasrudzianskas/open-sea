@@ -49,8 +49,7 @@ const Collection = () => {
         if (!provider) return
 
         const sdk = new ThirdwebSDK(
-            provider.getSigner(),
-            'https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18'
+            provider.getSigner()
         )
         return sdk?.getNFTCollection(collectionId)
     }, [provider])
@@ -69,8 +68,7 @@ const Collection = () => {
         if(!provider) return;
 
         const sdk = new ThirdwebSDK(
-            provider.getSigner(),
-            'https://eth-rinkeby.alchemyapi.io/v2/rclOC_G5gQff7eqOZ-ZuoUpYCzYy2D18'
+            provider.getSigner()
         );
 
         return sdk.getNFTDrop('0xeb38262776CcD2a7CdAD70686719f3F82898Fef0'); // marketplace address
