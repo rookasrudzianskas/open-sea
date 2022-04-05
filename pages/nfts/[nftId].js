@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useWeb3 } from '@3rdweb/hooks'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import { useRouter } from 'next/router'
+import {async} from "rxjs";
 
 const style = {
     wrapper: `flex flex-col items-center container-lg text-[#e5e8eb]`,
@@ -50,6 +51,13 @@ const Nft = () => {
         return sdk.getMarketModule('0xeb38262776CcD2a7CdAD70686719f3F82898Fef0');
 
     }, [provider]);
+
+    useEffect(() => {
+        if(!marketPlaceModule) return;
+        ;(async () => {
+            setListings(await marketPlaceModule.getMetadata(selectedNft)) // what?!
+        })();
+    }, [marketPlaceModule]);
 
 
 
