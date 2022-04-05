@@ -57,6 +57,7 @@ const Collection = () => {
     useEffect(() => {
         if(!nftModule) return;
         // gets all the nfts in the collection
+
         ;(async () => {
             const nfts = await nftModule.getAll();
             setNfts(nfts);
