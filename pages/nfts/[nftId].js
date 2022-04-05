@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import {async} from "rxjs";
 import NFTImage from "../../components/nft/NFTImage";
 import GeneralDetails from "../../components/nft/GeneralDetails";
+import ItemActivity from "../../components/nft/ItemActivity";
 
 const style = {
     wrapper: `flex flex-col items-center container-lg text-[#e5e8eb]`,
@@ -80,7 +81,7 @@ const Nft = () => {
                             {/*/>*/}
                         </div>
                     </div>
-                    {/*<ItemActivity />*/}
+                    <ItemActivity />
                 </div>
             </div>
         </div>
