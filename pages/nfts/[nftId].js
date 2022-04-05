@@ -14,6 +14,11 @@ const style = {
 }
 
 const Nft = () => {
+    const {provider} = useWeb3();
+    const [selectedNft, setSelectedNft] = useWeb3();
+    const [listings, setListings] = useState([]);
+    const router = useRouter();
+
     return (
         <div>
             <Header />
