@@ -126,7 +126,42 @@ const Collection = () => {
                     alt="banner"
                 />
             </div>
-
+            <div className={style.infoContainer}>
+                <div className={style.midRow}>
+                    <img
+                        className={style.profileImg}
+                        src={
+                            collection?.imageUrl
+                                ? collection.imageUrl
+                                : 'https://via.placeholder.com/200'
+                        }
+                        alt="profile image"
+                    />
+                </div>
+                <div className={style.endRow}>
+                    <div className={style.socialIconsContainer}>
+                        <div className={style.socialIconsWrapper}>
+                            <div className={style.socialIconsContent}>
+                                <div className={style.socialIcon}>
+                                    <CgWebsite />
+                                </div>
+                                <div className={style.divider} />
+                                <div className={style.socialIcon}>
+                                    <AiOutlineInstagram />
+                                </div>
+                                <div className={style.divider} />
+                                <div className={style.socialIcon}>
+                                    <AiOutlineTwitter />
+                                </div>
+                                <div className={style.divider} />
+                                <div className={style.socialIcon}>
+                                    <HiDotsVertical />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
