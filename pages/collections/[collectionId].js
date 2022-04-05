@@ -4,6 +4,10 @@ import Link from "next/link";
 import {useWeb3} from "@3rdweb/hooks";
 import {ThirdwebSDK} from "@thirdweb-dev/sdk";
 import {client} from "../../lib/sanityClient";
+import { CgWebsite } from 'react-icons/cg'
+import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
+import { HiDotsVertical } from 'react-icons/hi'
+import Header from "../../components/Header";
 
 const style = {
     bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
@@ -109,12 +113,9 @@ const Collection = () => {
 
 
     return (
-        <Link href="/">
-            <div>
-                <h2>{router.query.collectionId}</h2>
-                <h2>I am Rokas</h2>
-            </div>
-        </Link>
+        <div className="overflow-hidden">
+            <Header />
+        </div>
     );
 };
 
