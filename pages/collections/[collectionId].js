@@ -74,6 +74,7 @@ const Collection = () => {
     useEffect(() => {
         if (!marketPlaceModule) return;
             ;(async () => {
+            //    what?!
             setListings(await marketPlaceModule.getOwned(collectionId));
         })()
     }, [marketPlaceModule]);
