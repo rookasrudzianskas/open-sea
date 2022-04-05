@@ -24,9 +24,27 @@ const NFTCard = ({nftItem, title, listings}) => {
     const [isListed, setIsListed] = useState(false);
     const [price, setPrice] = useState(0);
     console.log('This is nftItem', nftItem);
-    return (
-        <div>
 
+    useEffect(() => {
+        for (const listing of listings) {
+            if(listing.asset.id === nftItem.id) {
+                setIsListed(true);
+                setPrice(listing.buyoutCurrencyValuePerToken.displayValue);
+            }
+        }
+    }, [listings, nftItem]);
+    return (
+        <div className={style.wrapper} onClick={
+            () => Router.push({
+                pathname: `/assets/${nftItem.id}`,
+                query: {
+                    isListed: isListed,
+                },
+            })
+        }>
+            <div className="">
+
+            </div>
         </div>
     );
 };
