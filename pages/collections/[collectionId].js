@@ -115,6 +115,18 @@ const Collection = () => {
     return (
         <div className="overflow-hidden">
             <Header />
+            <div className={style.bannerImageContainer}>
+                <img
+                    className={style.bannerImage}
+                    src={
+                        collection?.bannerImageUrl
+                            ? collection.bannerImageUrl
+                            : 'https://via.placeholder.com/200'
+                    }
+                    alt="banner"
+                />
+            </div>
+
         </div>
     );
 };
