@@ -1,9 +1,10 @@
 import React from 'react';
 
 const NFTCard = ({nftItem}) => {
+    console.log('This is nftItem', nftItem);
     return (
         <div>
-            <img src={nftItem.image} alt=""/>
+            <img src={nftItem.metadata.image} alt=""/>
         </div>
     );
 };
